@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.0.2](https://github.com/leoweyr/todo-requirement-blueprint-engine/compare/v1.0.1...v1.0.2) (2026-04-04)
+### Bug Fixes
+
+* **serializer:** replace es2017+ APIs with es2016-compatible implementations ([a860578](https://github.com/leoweyr/todo-requirement-blueprint-engine/commit/a8605785fc3950882c933e06b9b06a6ace1c87d2)) [@leoweyr](https://github.com/leoweyr)
+
+
+
 # [1.0.1](https://github.com/leoweyr/todo-requirement-blueprint-engine/compare/v1.0.0...v1.0.1) (2026-04-04)
 ### Bug Fixes
 
