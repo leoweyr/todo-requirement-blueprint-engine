@@ -313,7 +313,7 @@ export class BlueprintYamlComments {
     }
 
     private static appendComment(line: string, comment: string): string {
-        const trimmedLine: string = line.trimEnd();
+        const trimmedLine: string = line.replace(/\s+$/, '');
 
         return `${trimmedLine}  # ${comment}`;
     }

@@ -16,12 +16,12 @@ export class BlueprintObjectAssembler {
         anchorMap: Map<string, string>
     ): Promise<void> {
         if (blueprintData.node_statuses) {
-            for (const nodeStatusEntry of Object.entries(
-                blueprintData.node_statuses
-            )) {
-                const typedNodeStatusEntry: [string, { name: string; description: string; metadata?: Record<string, unknown> }] = nodeStatusEntry;
-                const key: string = typedNodeStatusEntry[0];
-                const value: { name: string; description: string; metadata?: Record<string, unknown> } = typedNodeStatusEntry[1];
+            for (const key in blueprintData.node_statuses) {
+                if (!Object.prototype.hasOwnProperty.call(blueprintData.node_statuses, key)) {
+                    continue;
+                }
+
+                const value: { name: string; description: string; metadata?: Record<string, unknown> } = blueprintData.node_statuses[key];
                 const statusName: string = value.name;
                 const statusDescription: string = value.description;
                 const statusMetadata: Record<string, unknown> | undefined = value.metadata;
@@ -42,12 +42,12 @@ export class BlueprintObjectAssembler {
         }
 
         if (blueprintData.edge_evolution_reasons) {
-            for (const reasonEntry of Object.entries(
-                blueprintData.edge_evolution_reasons
-            )) {
-                const typedReasonEntry: [string, { name: string; description: string; metadata?: Record<string, unknown> }] = reasonEntry;
-                const key: string = typedReasonEntry[0];
-                const value: { name: string; description: string; metadata?: Record<string, unknown> } = typedReasonEntry[1];
+            for (const key in blueprintData.edge_evolution_reasons) {
+                if (!Object.prototype.hasOwnProperty.call(blueprintData.edge_evolution_reasons, key)) {
+                    continue;
+                }
+
+                const value: { name: string; description: string; metadata?: Record<string, unknown> } = blueprintData.edge_evolution_reasons[key];
                 const reasonName: string = value.name;
                 const reasonDescription: string = value.description;
                 const reasonMetadata: Record<string, unknown> | undefined = value.metadata;
