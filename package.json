@@ -1,6 +1,6 @@
 {
     "name": "@todo-requirement-blueprint/engine",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "A TODO Requirement Blueprint (TRB) engine with a domain object pool and built-in serialization/deserialization.",
     "bugs": "https://github.com/leoweyr/todo-requirement-blueprint-engine/issues",
     "type": "commonjs",
@@ -28,7 +28,16 @@
         "strategic-planning",
         "graph-data",
         "indie-hacker",
-        "solopreneur"
+        "solopreneur",
+        "yaml",
+        "yaml-anchors",
+        "json-schema",
+        "schema-validation",
+        "serialization",
+        "deserialization",
+        "flyweight-pattern",
+        "dependency-graph",
+        "graph-model"
     ],
     "author": "leoweyr <contact@leoweyr.com>",
     "license": "MIT",
@@ -37,7 +46,10 @@
         "typescript": "^5.7.3"
     },
     "dependencies": {
-        "@todo-requirement-blueprint/domain": "^1.0.2"
+        "@todo-requirement-blueprint/domain": "^1.0.2",
+        "ajv": "^8.18.0",
+        "ajv-formats": "^3.0.1",
+        "js-yaml": "^4.1.1"
     },
     "repository": {
         "type": "git",
