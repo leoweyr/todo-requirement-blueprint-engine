@@ -1,0 +1,19 @@
+name: Publish Release
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  call-publish:
+    uses: leoweyr/github-release-workflow/.github/workflows/reusable-publish-release.yml@develop
+    with:
+      npm-node-version: '20'
+      npm-package-dir: '.'
+      npm-deploy-command: 'npm run deploy'
+    secrets:
+      ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{secrets.NPM_TOKEN}}

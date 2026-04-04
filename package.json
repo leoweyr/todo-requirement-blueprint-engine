@@ -1,0 +1,46 @@
+{
+    "name": "@todo-requirement-blueprint/engine",
+    "version": "0.0.0",
+    "description": "A TODO Requirement Blueprint (TRB) engine with a domain object pool and built-in serialization/deserialization.",
+    "bugs": "https://github.com/leoweyr/todo-requirement-blueprint-engine/issues",
+    "type": "commonjs",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "CHANGELOG.md"
+    ],
+    "scripts": {
+        "clean": "rimraf dist",
+        "compile": "tsc",
+        "build": "npm run clean && npm run compile",
+        "package": "npm run build && npm pack",
+        "deploy": "npm run package && npm publish --access=public"
+    },
+    "keywords": [
+        "trb",
+        "todo-requirement-blueprint",
+        "typescript",
+        "demand-pull",
+        "roadmap",
+        "wardley-maps",
+        "gitops",
+        "strategic-planning",
+        "graph-data",
+        "indie-hacker",
+        "solopreneur"
+    ],
+    "author": "leoweyr <contact@leoweyr.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "rimraf": "^6.0.1",
+        "typescript": "^5.7.3"
+    },
+    "dependencies": {
+        "@todo-requirement-blueprint/domain": "^1.0.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/leoweyr/todo-requirement-blueprint-engine.git"
+    }
+}
