@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.0.1](https://github.com/leoweyr/todo-requirement-blueprint-engine/compare/v1.0.0...v1.0.1) (2026-04-04)
+### Bug Fixes
+
+* **deps:** add missing @types/js-yaml declarations ([27d71d7](https://github.com/leoweyr/todo-requirement-blueprint-engine/commit/27d71d7a2c4736504fdb78422f6225f4404f90f5)) [@leoweyr](https://github.com/leoweyr)
+
+
+
 # [1.0.0] (2026-04-04)
 ### Features
 
