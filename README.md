@@ -1,3 +1,3 @@
 # TODO Requirement Blueprint Engine
 
-A TODO Requirement Blueprint (TRB) engine with a domain object pool and built-in serialization/deserialization.
+A [TODO Requirement Blueprint (TRB)](https://github.com/leoweyr/todo-requirement-blueprint-spec) engine with a domain object pool and built-in serialization/deserialization.
