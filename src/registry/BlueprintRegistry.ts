@@ -6,13 +6,18 @@ import { NodeStatus } from '@todo-requirement-blueprint/domain';
 
 
 export class BlueprintRegistry {
-    private _blueprintName: string = 'Untitled Blueprint';
-    private _trbVersion: string = '';
-    private _schema: unknown = null;
     private readonly _nodes: Map<string, Node>;
     private readonly _nodeStatuses: Map<string, NodeStatus>;
     private readonly _edgeEvolutionReasons: Map<string, EdgeEvolutionReason>;
     private readonly _yamlComments: Map<string, string>;
+
+    private _blueprintName: string = 'Untitled Blueprint';
+    private _trbVersion: string = '';
+    private _schema: unknown = null;
+    private _nodeStatusOrder: string[] = [];
+    private _edgeEvolutionReasonOrder: string[] = [];
+    private _nodeOrder: string[] = [];
+    private _nodeEdgeOrder: Map<string, string[]> = new Map<string, string[]>();
 
     public constructor() {
         this._nodes = new Map<string, Node>();
@@ -111,6 +116,13 @@ export class BlueprintRegistry {
         }
 
         this._nodes.delete(nodeId);
+        this._nodeEdgeOrder.delete(nodeId);
+        const orderIndex: number = this._nodeOrder.indexOf(nodeId);
+
+        if (orderIndex !== -1) {
+            this._nodeOrder.splice(orderIndex, 1);
+        }
+
         this._nodes.forEach((node: Node): void => {
             const edgesToRemove: Edge[] = [];
 
@@ -138,6 +150,10 @@ export class BlueprintRegistry {
         this._blueprintName = 'Untitled Blueprint';
         this._trbVersion = '';
         this._schema = null;
+        this._nodeStatusOrder = [];
+        this._edgeEvolutionReasonOrder = [];
+        this._nodeOrder = [];
+        this._nodeEdgeOrder.clear();
     }
 
     public get allNodes(): Node[] {
@@ -156,6 +172,11 @@ export class BlueprintRegistry {
 
     public deleteNodeStatus(name: string): void {
         this._nodeStatuses.delete(name);
+        const orderIndex: number = this._nodeStatusOrder.indexOf(name);
+
+        if (orderIndex !== -1) {
+            this._nodeStatusOrder.splice(orderIndex, 1);
+        }
     }
 
     public updateNodeStatus(oldName: string, newStatus: NodeStatus): void {
@@ -197,6 +218,11 @@ export class BlueprintRegistry {
 
     public deleteEdgeEvolutionReason(name: string): void {
         this._edgeEvolutionReasons.delete(name);
+        const orderIndex: number = this._edgeEvolutionReasonOrder.indexOf(name);
+
+        if (orderIndex !== -1) {
+            this._edgeEvolutionReasonOrder.splice(orderIndex, 1);
+        }
     }
 
     public updateEdgeEvolutionReason(oldName: string, newReason: EdgeEvolutionReason): void {
@@ -228,5 +254,41 @@ export class BlueprintRegistry {
 
     public get allYamlComments(): Map<string, string> {
         return this._yamlComments;
+    }
+
+    public get nodeStatusOrder(): string[] {
+        return this._nodeStatusOrder;
+    }
+
+    public set nodeStatusOrder(order: string[]) {
+        this._nodeStatusOrder = order;
+    }
+
+    public get edgeEvolutionReasonOrder(): string[] {
+        return this._edgeEvolutionReasonOrder;
+    }
+
+    public set edgeEvolutionReasonOrder(order: string[]) {
+        this._edgeEvolutionReasonOrder = order;
+    }
+
+    public get nodeOrder(): string[] {
+        return this._nodeOrder;
+    }
+
+    public set nodeOrder(order: string[]) {
+        this._nodeOrder = order;
+    }
+
+    public getNodeEdgeOrder(nodeId: string): string[] | undefined {
+        return this._nodeEdgeOrder.get(nodeId);
+    }
+
+    public setNodeEdgeOrder(nodeId: string, order: string[]): void {
+        this._nodeEdgeOrder.set(nodeId, order);
+    }
+
+    public get allNodeEdgeOrders(): Map<string, string[]> {
+        return this._nodeEdgeOrder;
     }
 }
