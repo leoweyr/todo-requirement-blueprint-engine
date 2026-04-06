@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.1.0](https://github.com/leoweyr/todo-requirement-blueprint-engine/compare/v1.0.2...v1.1.0) (2026-04-06)
+### Features
+
+* **serializer:** preserve source order for statuses, reasons, and nodes across round trips ([4a9f13a](https://github.com/leoweyr/todo-requirement-blueprint-engine/commit/4a9f13a708698d9684c15857642ccc8a2c1ff1d4)) [@leoweyr](https://github.com/leoweyr)
+
+
+
 # [1.0.2](https://github.com/leoweyr/todo-requirement-blueprint-engine/compare/v1.0.1...v1.0.2) (2026-04-04)
 ### Bug Fixes
 
